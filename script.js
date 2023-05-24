@@ -1,3 +1,4 @@
+//javascript
 document.addEventListener("DOMContentLoaded", function () {
   const addBlogLink = document.getElementById("add-blog-link");
   const addBlogFormContainer = document.getElementById(
