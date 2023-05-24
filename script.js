@@ -1,33 +1,61 @@
-// Function to fetch blogs from the API
-async function fetchBlogs() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const blogs = await response.json();
-  return blogs;
-}
-// Function to render blogs in the UI
-function renderBlogs(blogs) {
-  const blogListElement = document.getElementById("blog-list");
-  blogListElement.innerHTML = "";
+document.addEventListener("DOMContentLoaded", function () {
+  const blogList = document.getElementById("blogList");
+  const addBlogForm = document.getElementById("addBlogForm");
 
-  blogs.forEach((blog) => {
+  // Fetch blogs from the API
+  fetch("https://jsonplaceholder.typicode.com/posts")
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((blog) => {
+        const blogItem = createBlogItem(blog);
+        blogList.appendChild(blogItem);
+      });
+    });
+
+  // Add new blog
+  addBlogForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const titleInput = document.getElementById("titleInput");
+    const contentInput = document.getElementById("contentInput");
+
+    const newBlog = {
+      title: titleInput.value,
+      body: contentInput.value,
+    };
+
+    const blogItem = createBlogItem(newBlog);
+    blogList.appendChild(blogItem);
+
+    titleInput.value = "";
+    contentInput.value = "";
+  });
+
+  // Delete blog
+  blogList.addEventListener("click", function (e) {
+    if (e.target.classList.contains("delete-button")) {
+      const blogItem = e.target.parentElement;
+      blogList.removeChild(blogItem);
+    }
+  });
+
+  function createBlogItem(blog) {
     const blogItem = document.createElement("div");
-    blogItem.classList.add("blog-item");
+    blogItem.className = "blog";
 
-    const titleElement = document.createElement("h2");
-    titleElement.textContent = blog.title;
+    const title = document.createElement("h2");
+    title.textContent = blog.title;
 
-    const bodyElement = document.createElement("p");
-    bodyElement.textContent = blog.body;
+    const content = document.createElement("p");
+    content.textContent = blog.body;
 
     const deleteButton = document.createElement("button");
-    deleteButton.classList.add("delete-button");
+    deleteButton.className = "delete-button";
     deleteButton.textContent = "Delete";
-    deleteButton.addEventListener("click", () => deleteBlog(blog.id));
 
-    blogItem.appendChild(titleElement);
-    blogItem.appendChild(bodyElement);
+    blogItem.appendChild(title);
+    blogItem.appendChild(content);
     blogItem.appendChild(deleteButton);
 
-    blogListElement.appendChild(blogItem);
-  });
-}
+    return blogItem;
+  }
+});

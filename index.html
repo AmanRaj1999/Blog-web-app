@@ -3,74 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog Web App</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-      }
-
-      .container {
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-
-      .blog-item {
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-        padding: 10px;
-      }
-
-      .add-blog-form input[type="text"],
-      .add-blog-form textarea {
-        width: 100%;
-        padding: 5px;
-        margin-bottom: 10px;
-      }
-
-      .add-blog-form button {
-        padding: 5px 10px;
-      }
-
-      .delete-button {
-        background-color: #f44336;
-        color: white;
-        border: none;
-        padding: 5px 10px;
-        cursor: pointer;
-        float: right;
-      }
-
-      .blog-item h2 {
-        margin-top: 0;
-      }
-
-      .add-blog-form {
-        margin-bottom: 20px;
-      }
-
-      .delete-button:hover {
-        background-color: #d32f2f;
-      }
-    </style>
+    <title>Blog App</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
-      <h1>Blog Web App</h1>
-
-      <div class="add-blog-form">
-        <h2>Add New Blog</h2>
-        <input type="text" id="title" placeholder="Title" />
-        <textarea id="body" placeholder="Content"></textarea>
-        <button onclick="addBlog()">Add Blog</button>
-      </div>
+      <h1>Blog App</h1>
+      <form id="addBlogForm">
+        <input type="text" id="titleInput" placeholder="Enter Title" required />
+        <textarea
+          id="contentInput"
+          placeholder="Enter Content"
+          required
+        ></textarea>
+        <button type="submit">Add Blog</button>
+      </form>
+      <div id="blogList"></div>
     </div>
-  </body>
-</html>
-<h2>All Blogs</h2>
-    <div id="blog-list"></div>
-  </div>
 
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
