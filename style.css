@@ -1,45 +1,103 @@
+/* General Styles */
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header Styles */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 h1 {
-  text-align: center;
-}
-
-#blogList {
-  margin-top: 20px;
-}
-
-.blogItem {
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-  padding: 10px;
-}
-
-.blogItem h3 {
   margin: 0;
 }
 
-.blogItem p {
-  margin-top: 5px;
+a {
+  color: #fff;
+  text-decoration: none;
 }
 
-form {
-  margin-top: 20px;
+/* Add Blog Form Styles */
+#add-blog-link {
+  color: #fff;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-form h2 {
+#add-blog-form-container {
+  display: none;
+  margin-bottom: 20px;
+}
+
+#add-blog-form {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#add-blog-form h2 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
   margin-bottom: 5px;
 }
 
-form input,
-form textarea {
-  display: block;
-  margin-bottom: 10px;
+input[type="text"],
+textarea {
   width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
 }
 
-form button {
+button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Blog List Styles */
+.blog {
+  background-color: #f4f4f4;
+  margin-bottom: 10px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.blog h3 {
+  margin-top: 0;
+}
+
+.blog p {
+  margin-bottom: 10px;
+}
+
+.delete-button {
+  background-color: #ff3333;
+  color: #fff;
+  border: none;
   padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
 }

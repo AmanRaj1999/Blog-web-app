@@ -1,20 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog Web App</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <h1>Blog Web App</h1>
+    <header>
+      <div class="container">
+        <nav>
+          <h1>Blog Web App</h1>
+          <a href="#" id="add-blog-link">Add New Blog</a>
+        </nav>
+      </div>
+    </header>
 
-    <div id="blogList"></div>
-
-    <form id="addBlogForm">
-      <h2>Add a New Blog</h2>
-      <input type="text" id="titleInput" placeholder="Title" required />
-      <textarea id="contentInput" placeholder="Content" required></textarea>
-      <button type="submit">Add Blog</button>
-    </form>
+    <main>
+      <div class="container" id="add-blog-form-container">
+        <form id="add-blog-form">
+          <h2>Add New Blog</h2>
+          <div>
+            <label for="title">Title:</label>
+            <input type="text" id="title" required />
+          </div>
+          <div>
+            <label for="body">Content:</label>
+            <textarea id="body" required></textarea>
+          </div>
+          <div>
+            <button type="submit">Add Blog</button>
+          </div>
+        </form>
+      </div>
+      <div id="blog-list" class="container"></div>
+    </main>
 
     <script src="script.js"></script>
   </body>
